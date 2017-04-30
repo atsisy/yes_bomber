@@ -28,4 +28,9 @@ public class FieldManager {
     public void Start(){
         CurrentField = start_field;
     }
+
+    public void ChangeToBattleField(){
+        start_field.ClearAll();
+        CurrentField = battle_field;
+    }
 }

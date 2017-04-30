@@ -29,14 +29,16 @@ public class Layer {
     /*
     * 指定したグラフィックレイヤーをすべて消す関数
      */
-    public void eraseLayer(){
+    public void EraseLayer(){
         this.graphicsContext.clearRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
     }
 
     /*
     * アクティブレイヤーの変更を行うメソッド
      */
-    public void beForward(){
+    public void ToForward(){
         canvas.toFront();
     }
+
+    public  void ToBack() { canvas.toBack(); }
 }

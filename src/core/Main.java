@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     public static Field CurrentField;
+    public static FieldManager manager;
 
     @Override
     public void start(Stage stage){
@@ -23,7 +24,7 @@ public class Main extends Application {
 
         AnchorPane root = new AnchorPane();
 
-        FieldManager manager = new FieldManager("start_wallpaper.png");
+        manager = new FieldManager("start_wallpaper.png");
         manager.AddToRoot(root);
 
         Scene scene = new Scene(root);

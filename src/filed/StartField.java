@@ -6,6 +6,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 
+import static core.Main.manager;
 import static value.Value.WINDOW_HEIGHT;
 import static value.Value.WINDOW_WIDTH;
 
@@ -43,6 +44,7 @@ public class StartField extends Field {
         pane.getChildren().addAll(image_layer.getCanvas(), select_layer.getCanvas());
     }
 
+    @Override
     public void ReceiveKeyCode(KeyCode code){
         if(code.equals(KeyCode.UP)){
             PrevMenu();
@@ -51,6 +53,7 @@ public class StartField extends Field {
         }else if(code.equals(KeyCode.ENTER)){
             switch (select_menu_index){
                 case 0:
+                    manager.ChangeToBattleField();
                     break;
                 case 1:
                     break;
@@ -92,5 +95,10 @@ public class StartField extends Field {
         select_layer.getGraphicsContext().fillText("QUIT", x, (WINDOW_HEIGHT / 2) + 200);
 
         select_layer.DrawRect(x, y - 30, 300, 40);
+    }
+
+    public void ClearAll(){
+        image_layer.EraseLayer();
+        select_layer.EraseLayer();
     }
 }
