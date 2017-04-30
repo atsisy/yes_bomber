@@ -1,6 +1,7 @@
 package core;
 
 import filed.Field;
+import filed.FieldManager;
 import filed.StartField;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -22,17 +23,16 @@ public class Main extends Application {
 
         AnchorPane root = new AnchorPane();
 
-        StartField start_field = new StartField("start_wallpaper.png");
-        start_field.AddRoot(root);
+        FieldManager manager = new FieldManager("start_wallpaper.png");
+        manager.AddToRoot(root);
 
         Scene scene = new Scene(root);
 
         scene.setOnKeyPressed(event -> CurrentField.ReceiveKeyCode(event.getCode()));
         stage.setScene(scene);
 
-        start_field.SortLayer();
-
-        CurrentField = start_field;
+        manager.SortStartFieldLayer();
+        manager.Start();
 
         stage.show();
 
